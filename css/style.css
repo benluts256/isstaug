@@ -3922,3 +3922,610 @@ textarea.form-control {
 #donationModal .close {
   opacity: 1;
 }
+
+/* ========================================================================
+   PRODUCTION-GRADE STRUCTURAL & VISUAL OVERHAUL
+   ======================================================================== */
+
+/* 1. MODERNIZED TOP CONTACT BAND & GLOBAL HEADER GRID */
+.top {
+  background: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 1051 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0.75rem 0 !important;
+}
+
+.top .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.top .row {
+  width: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.top .col-sm {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.top .topper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem;
+}
+
+.top .topper .icon {
+  width: 32px !important;
+  height: 32px !important;
+  background: rgba(253, 126, 20, 0.08) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0;
+}
+
+.top .topper .icon span {
+  color: #fd7e14 !important;
+  font-size: 14px !important;
+}
+
+.top .topper .text {
+  width: auto !important;
+  margin-bottom: 0 !important;
+}
+
+.top .topper p {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 13px !important;
+  color: #333333 !important;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.top .topper p span {
+  color: #5189df !important;
+  font-weight: 600;
+  font-size: 13px !important;
+}
+
+.top .social-media {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem;
+  margin: 0 !important;
+}
+
+.top .social-media p {
+  display: flex !important;
+  gap: 0.5rem;
+  margin: 0 !important;
+  align-items: center !important;
+}
+
+.top .social-media a {
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(253, 126, 20, 0.1) !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+.top .social-media a:hover {
+  background: rgba(253, 126, 20, 0.2) !important;
+  transform: translateY(-2px);
+}
+
+.top .social-media span {
+  color: #fd7e14 !important;
+  font-size: 12px !important;
+}
+
+@media (max-width: 767.98px) {
+  .top {
+    position: relative;
+    top: auto;
+  }
+  .top .row {
+    flex-direction: column !important;
+    gap: 0.75rem;
+    align-items: flex-start !important;
+  }
+  .top .col-sm {
+    width: 100% !important;
+  }
+  .top .social-media {
+    margin-left: auto !important;
+  }
+}
+
+/* 2. COLLISION-FREE NAVIGATION BAR EXPANSION */
+.header-main {
+  background: #1e1e24 !important;
+  position: relative !important;
+  width: 100% !important;
+  z-index: 1049 !important;
+  padding: 1rem 0 !important;
+  margin-top: 48px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+#ftco-navbar {
+  position: relative !important;
+  z-index: 1048 !important;
+  background: #1e1e24 !important;
+  padding: 0 !important;
+  min-height: auto !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  margin: 0 !important;
+}
+
+#ftco-navbar .container-fluid {
+  padding: 0.75rem 1rem !important;
+  background: transparent !important;
+}
+
+#ftco-navbar .navbar-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem;
+  min-height: 60px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+
+#ftco-navbar .navbar-brand img {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.3s ease !important;
+}
+
+#ftco-navbar .navbar-brand img:hover {
+  transform: scale(1.08) !important;
+}
+
+#ftco-navbar .navbar-brand-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 2px;
+  margin-left: 0 !important;
+  max-width: none !important;
+}
+
+#ftco-navbar .brand-line {
+  display: block !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.5px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+}
+
+#ftco-navbar .brand-line-1 {
+  color: #ffffff !important;
+}
+
+#ftco-navbar .brand-line-2 {
+  color: #fd7e14 !important;
+}
+
+#ftco-navbar .brand-subtitle {
+  display: block !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 1px !important;
+  margin-top: 3px !important;
+  color: #ffffff !important;
+  text-transform: uppercase;
+}
+
+#ftco-navbar .navbar-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem;
+  margin-left: auto !important;
+  flex-wrap: nowrap;
+}
+
+#ftco-navbar .navbar-nav .nav-item {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+#ftco-navbar .navbar-nav .nav-link {
+  padding: 0.75rem 1rem !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  white-space: nowrap !important;
+  position: relative;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#ftco-navbar .navbar-nav .nav-link:hover,
+#ftco-navbar .navbar-nav .nav-link:focus,
+#ftco-navbar .navbar-nav .nav-link.active {
+  color: #fd7e14 !important;
+  border-bottom-color: #fd7e14;
+}
+
+#ftco-navbar .navbar-toggler {
+  border: none !important;
+  padding: 0.5rem 0.75rem !important;
+  color: #ffffff !important;
+  font-size: 16px !important;
+}
+
+@media (max-width: 991.98px) {
+  #ftco-navbar {
+    padding: 0.5rem 0 !important;
+  }
+  #ftco-navbar .navbar-brand {
+    min-height: auto;
+  }
+  #ftco-navbar .navbar-nav {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 0.75rem;
+  }
+  #ftco-navbar .navbar-nav .nav-link {
+    padding: 0.75rem 1rem !important;
+    width: 100%;
+  }
+}
+
+/* 3. SENIOR-LEVEL IMAGE LAYOUT SYSTEM */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+img.img-fluid {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.img,
+.blog-img,
+.user-img {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+}
+
+/* Fix background-image divs that are clipping */
+.img[style*="background-image"],
+.blog-img[style*="background-image"],
+.user-img[style*="background-image"] {
+  min-height: 300px !important;
+  padding-top: 65% !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.services .img {
+  min-height: 280px !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+.project-wrap.img {
+  min-height: 320px !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ftco-about .img,
+.ftco-about .img-2 {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Ensure all section images are properly sized */
+.home-slider .slider-item {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+.ftco-counter {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+}
+
+.video-image {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 4. CARD & LAYOUT COLUMN SYNCHRONIZATION */
+.services {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  width: 100% !important;
+  background: #ffffff;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  border: none !important;
+}
+
+.services:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08) !important;
+}
+
+.services .p-4 {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.services .media-body {
+  flex: 1 1 auto !important;
+}
+
+.services .heading {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #1e1e24 !important;
+  margin-bottom: 1rem !important;
+}
+
+.services p {
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #666666 !important;
+  margin-bottom: 0;
+}
+
+.services .img {
+  width: 100% !important;
+  height: 200px !important;
+  flex-shrink: 0;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  position: relative;
+}
+
+.services .btn-custom {
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  background: rgba(253, 126, 20, 0.1) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+.services:hover .btn-custom {
+  background: #fd7e14 !important;
+}
+
+.services .btn-custom span {
+  color: #fd7e14 !important;
+  font-size: 16px !important;
+}
+
+.services:hover .btn-custom span {
+  color: #ffffff !important;
+}
+
+/* Synchronize project/work cards */
+.project-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  width: 100% !important;
+  background: #ffffff;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  position: relative;
+}
+
+.project-wrap:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08) !important;
+}
+
+.project-wrap.img {
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+  min-height: 320px !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+.project-wrap .text {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%) !important;
+  padding: 1.5rem !important;
+  color: #ffffff;
+  width: 100%;
+}
+
+.project-wrap h3 {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.project-wrap h3 a {
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.project-wrap h3 a:hover {
+  color: #fd7e14 !important;
+}
+
+.project-wrap .icon {
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(253, 126, 20, 0.2) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+.project-wrap:hover .icon {
+  background: #fd7e14 !important;
+}
+
+.project-wrap .icon span {
+  color: #fd7e14 !important;
+  font-size: 14px !important;
+}
+
+.project-wrap:hover .icon span {
+  color: #ffffff !important;
+}
+
+/* Remove scrollbars and fix overflow */
+.info-card .values-list {
+  max-height: none !important;
+  overflow: visible !important;
+  overflow-y: visible !important;
+  padding-right: 0 !important;
+  scroll-behavior: smooth;
+}
+
+/* Ensure all row flexes are synchronized */
+.row.d-flex {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+.row.d-flex.align-items-stretch .col-md-3 {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+/* Fix card alignment in columns */
+.col-md-3.d-flex {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.col-md-3.d-flex .services,
+.col-md-3.d-flex .project-wrap {
+  flex: 1 1 auto !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* 5. RESPONSIVE IMAGE TWEAKS */
+@media (max-width: 767.98px) {
+  .img[style*="background-image"],
+  .services .img,
+  .project-wrap.img {
+    min-height: 250px !important;
+    padding-top: 0 !important;
+  }
+  
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* 6. GENERIC IMPROVEMENTS */
+.card {
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Ensure no arbitrary clipping */
+.row {
+  align-items: stretch !important;
+}
+
+/* Fix any remaining scrollbar issues */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
