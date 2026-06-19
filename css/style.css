@@ -4796,22 +4796,7 @@ img[class*="img-"] {
   }
 }
 
-/* Partner images responsive */
-.partner-img {
-  width: auto !important;
-  max-width: 100% !important;
-  height: auto !important;
-  min-width: auto !important;
-  margin-right: 0 !important;
-  margin-bottom: 1rem !important;
-}
 
-@media (max-width: 767.98px) {
-  .partner-img {
-    width: 100px !important;
-    height: 100px !important;
-  }
-}
 
 /* Remove internal scrollbars - allow natural page flow */
 .overflow-y-scroll,
@@ -4968,6 +4953,84 @@ p, span, a, button {
     padding: 12px 15px !important;
     text-align: left !important;
     width: 100% !important;
+  }
+}
+
+/* =====================================================================
+   PARTNERS SECTION - RESPONSIVE IMAGE & TEXT DISPLAY
+   ===================================================================== */
+
+.partner-card {
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+  border: 1px solid #e8e8e8;
+}
+
+.partner-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border-color: #fd7e14;
+  transform: translateY(-3px);
+}
+
+.partner-img {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 24px;
+  width: 120px !important;
+  height: 120px !important;
+  min-width: 120px !important;
+}
+
+/* Ensure partner images render at all breakpoints */
+@media (max-width: 768px) {
+  .partner-card {
+    gap: 15px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .partner-img {
+    width: 100px !important;
+    min-width: 100px !important;
+    height: 100px !important;
+  }
+  
+  .partner-card .text h3 {
+    font-size: 14px !important;
+  }
+  
+  .partner-card .position {
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .partner-card {
+    gap: 12px !important;
+    padding: 12px !important;
+  }
+  
+  .partner-img {
+    width: 85px !important;
+    min-width: 85px !important;
+    height: 85px !important;
+    border: 2px solid #fd7e14 !important;
+  }
+  
+  .partner-card .text h3 {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+  
+  .partner-card .position {
+    font-size: 9px !important;
   }
 }
 
