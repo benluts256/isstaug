@@ -1935,7 +1935,7 @@ a, button {
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(245, 247, 248, 0.966);
   font-weight: 400;
   font-family: "Roboto", Arial, sans-serif; }
 
@@ -2590,7 +2590,7 @@ h1, h2, h3, h4, h5,
   }
 }
 .navbar-brand span {
-  color: #000000;
+  color: #fcf9f9;
   display: block;
   line-height: 1;
 }
