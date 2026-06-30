@@ -30,130 +30,296 @@
   <link rel="stylesheet" href="css/flaticon.css">
   <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Senior Dev Layout Architecture */
-        .gallery-filter .btn-filter {
-            background: transparent;
-            color: #333333;
-            border: 2px solid #e6e6e6;
-            padding: 8px 20px;
-            font-weight: 600;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .gallery-filter .btn-filter.active,
-        .gallery-filter .btn-filter:hover {
-            background: #fd7e14;
-            border-color: #fd7e14;
-            color: #ffffff;
-        }
-        .gallery-card {
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .gallery-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-        }
-        .gallery-img-wrapper {
-            position: relative;
-            width: 100%;
-            height: 250px; /* Forces uniform height alignment */
-            overflow: hidden;
-        }
-        .gallery-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Prevents stretching and cropping bugs */
-            transition: transform 0.5s ease;
-        }
-        .gallery-card:hover .gallery-img-wrapper img {
-            transform: scale(1.1); /* Elegant zoom effect */
-        }
-        .gallery-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-overlay span {
-            width: 52px;
-            height: 52px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255,255,255,0.35);
-        }
-        .gallery-card:hover .gallery-overlay {
-            opacity: 1;
-        }
+        /* PROFESSIONAL GALLERY GRID & CARD SYSTEM - MULTI-DEVICE OPTIMIZED */
+
+        /* =====================================================
+           1. RESPONSIVE FILTER BUTTONS
+           ===================================================== */
         .gallery-filter {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
+
         .gallery-filter .btn-filter {
-            min-width: 145px;
-            transition: all 0.25s ease;
-            border-color: rgba(0,0,0,0.08);
+            min-width: auto;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
             color: #333333;
             background: #ffffff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
-        .gallery-filter .btn-filter.active,
+
         .gallery-filter .btn-filter:hover {
             background: #fd7e14;
             border-color: #fd7e14;
             color: #ffffff;
-            box-shadow: 0 6px 18px rgba(253,126,20,0.24);
+            box-shadow: 0 6px 16px rgba(253, 126, 20, 0.28);
+            transform: translateY(-2px);
         }
-        .gallery-card .p-3 {
-            padding: 1.25rem;
+
+        .gallery-filter .btn-filter.active {
+            background: #fd7e14;
+            border-color: #fd7e14;
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(253, 126, 20, 0.28);
         }
-        .gallery-card h4 {
-            font-size: 1rem;
-            letter-spacing: 0.02em;
+
+        /* =====================================================
+           2. FLEX GRID CONTAINER - ENFORCES EQUAL HEIGHTS
+           ===================================================== */
+        #gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: stretch;
         }
+
+        /* =====================================================
+           3. RESPONSIVE COLUMN BREAKPOINTS
+           ===================================================== */
+        .gallery-item {
+            /* Mobile: Full width stacking */
+            flex: 0 0 calc(100% - 1.5rem);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Tablets: 2-column layout (col-md-6) */
+        @media (min-width: 768px) {
+            .gallery-item {
+                flex: 0 0 calc(50% - 0.75rem);
+            }
+        }
+
+        /* Desktop: 3-column layout (col-lg-4) */
+        @media (min-width: 992px) {
+            .gallery-item {
+                flex: 0 0 calc(33.333% - 1rem);
+            }
+        }
+
+        /* =====================================================
+           4. PREMIUM CARD COMPONENT STYLING
+           ===================================================== */
+        .interactive-gallery-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .interactive-gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        /* =====================================================
+           5. PROFESSIONAL ASPECT-RATIO IMAGE WRAPPER
+           ===================================================== */
+        .gallery-card-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3 !important; /* Locked 4:3 professional landscape ratio */
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .gallery-card-img-wrap img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+        }
+
+        .interactive-gallery-card:hover .gallery-card-img-wrap img {
+            transform: scale(1.08); /* Premium micro-zoom on hover */
+        }
+
+        /* =====================================================
+           6. IMAGE OVERLAY WITH SEARCH ICON
+           ===================================================== */
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-overlay span {
+            width: 56px;
+            height: 56px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .interactive-gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* =====================================================
+           7. CARD CONTENT SECTION - TEXT & METADATA
+           ===================================================== */
+        .gallery-card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            background: #ffffff;
+        }
+
+        .gallery-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1c20;
+            margin: 0 0 8px 0;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+        }
+
+        .gallery-card-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #999999;
+            background: #f9f9f9;
+            padding: 6px 12px;
+            border-radius: 20px;
+            width: fit-content;
+        }
+
+        /* =====================================================
+           8. MOBILE RESPONSIVENESS (Phones & Small Tablets)
+           ===================================================== */
         @media (max-width: 767.98px) {
+            /* Full-width cards on mobile */
+            .gallery-item {
+                flex: 0 0 100% !important;
+                margin-bottom: 1rem;
+            }
+
+            /* Reduce padding on mobile */
+            .gallery-card-content {
+                padding: 1.25rem 1rem;
+            }
+
+            /* Adjust filter buttons for mobile */
             .gallery-filter {
                 flex-direction: column;
-                align-items: stretch;
                 gap: 0.75rem;
             }
+
             .gallery-filter .btn-filter {
                 width: 100%;
-                max-width: 100%;
-                text-align: center;
-                padding: 12px 18px;
-            }
-            .gallery-img-wrapper {
-                height: 200px;
-            }
-            .hero-wrap {
-                height: auto !important;
-                padding: 70px 0;
-            }
-            .hero-wrap .text {
-                padding: 0 15px;
-            }
-            .hero-wrap h1 {
-                font-size: 34px;
-            }
-            .breadcrumbs {
+                padding: 12px 16px;
                 font-size: 13px;
             }
-            .gallery-card .p-3 {
-                padding: 1rem;
+
+            /* Adjust image aspect ratio on mobile for better visibility */
+            .gallery-card-img-wrap {
+                aspect-ratio: 16 / 12 !important;
+            }
+
+            .gallery-card-title {
+                font-size: 16px;
+                margin-bottom: 6px;
+            }
+
+            .gallery-card-badge {
+                font-size: 10px;
+                padding: 5px 10px;
+            }
+        }
+
+        /* =====================================================
+           9. TABLET OPTIMIZATION (Medium Screens)
+           ===================================================== */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            #gallery-grid {
+                gap: 1.25rem;
+            }
+
+            .gallery-item {
+                margin-bottom: 0;
+            }
+
+            .gallery-card-content {
+                padding: 1.25rem;
+            }
+
+            .gallery-card-title {
+                font-size: 17px;
+            }
+        }
+
+        /* =====================================================
+           10. DESKTOP OPTIMIZATION (Large Screens)
+           ===================================================== */
+        @media (min-width: 992px) {
+            #gallery-grid {
+                gap: 1.75rem;
+            }
+
+            .gallery-card-content {
+                padding: 1.5rem;
+            }
+
+            .gallery-card-title {
+                font-size: 18px;
+            }
+
+            .interactive-gallery-card:hover {
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        /* =====================================================
+           11. ACCESSIBILITY & ANIMATION SAFEGUARDS
+           ===================================================== */
+        @media (prefers-reduced-motion: reduce) {
+            .interactive-gallery-card,
+            .gallery-card-img-wrap img,
+            .gallery-overlay,
+            .gallery-filter .btn-filter {
+                transition: none !important;
+            }
+        }
+
+        /* Fallback for browsers without aspect-ratio support */
+        @supports not (aspect-ratio: 4/3) {
+            .gallery-card-img-wrap {
+                height: 280px;
+                aspect-ratio: unset;
             }
         }
     </style>
@@ -256,8 +422,8 @@
 
     <section class="hero-wrap js-fullheight d-flex align-items-center justify-content-center" style="background-image: url('images/bg_8.jpg'); background-size: cover !important; background-position: center center !important; height: 300px;">
         <div class="text-center text-white">
-            <h1 class="font-weight-bold display-4" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">Gallery</h1>
-            <p class="breadcrumbs" style="font-size: 14px;"><span class="mr-2"><a href="index.html" class="text-white font-weight-bold">Home</a></span> <span>Gallery</span></p>
+            <h1 class="font-weight-bold display-4" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);font-size: 56px">Gallery</h1>
+            <p class="breadcrumbs" style="font-size: 16px;"><span class="mr-2"><a href="index.html" class="text-white font-weight-bold">Home</a></span> <span>Gallery</span></p>
         </div>
     </section>
 
@@ -266,7 +432,7 @@
         <div class="container">
             
             <div class="row justify-content-center mb-5">
-                <div class="col-md-8 text-center gallery-filter">
+                <div class="col-12 text-center gallery-filter">
                     <button class="btn-filter active mr-2 mb-2" data-filter="all">All Photos</button>
                     <button class="btn-filter mr-2 mb-2" data-filter="activities">Field Activities</button>
                     <button class="btn-filter mr-2 mb-2" data-filter="training">Training</button>
@@ -276,50 +442,309 @@
 
             <div class="row" id="gallery-grid">
                 
-                <div class="col-md-4 col-sm-6 mb-4 gallery-item" data-category="activities">
-                    <div class="gallery-card bg-white">
-                        <div class="gallery-img-wrapper">
-                            <img src="images/bg_1.jpg" alt="Sustainable Agriculture Field Work">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g18.jpeg" alt="Sustainable Agriculture Field Work">
                             <div class="gallery-overlay">
                                 <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
                             </div>
                         </div>
-                        <div class="p-3 text-center">
-                            <h4 class="h6 font-weight-bold mb-1 text-dark">Banana Plantation Management</h4>
-                            <span class="text-uppercase text-muted small" style="letter-spacing: 1px;">Field Activities</span>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Plantation Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 col-sm-6 mb-4 gallery-item" data-category="training">
-                    <div class="gallery-card bg-white">
-                        <div class="gallery-img-wrapper">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="training">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
                             <img src="images/bg_2.jpg" alt="Community Skills Training">
                             <div class="gallery-overlay">
                                 <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
                             </div>
                         </div>
-                        <div class="p-3 text-center">
-                            <h4 class="h6 font-weight-bold mb-1 text-dark">Grassroots Capacity Building</h4>
-                            <span class="text-uppercase text-muted small" style="letter-spacing: 1px;">Training</span>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Community Skills Training</h4>
+                            <span class="gallery-card-badge">Training</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 col-sm-6 mb-4 gallery-item" data-category="activities">
-                    <div class="gallery-card bg-white">
-                        <div class="gallery-img-wrapper">
-                            <img src="images/partner_ida.jpg" alt="Partner Field Evaluation">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/services-3.jpg" alt="Partner Field Evaluation">
                             <div class="gallery-overlay">
                                 <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
                             </div>
                         </div>
-                        <div class="p-3 text-center">
-                            <h4 class="h6 font-weight-bold mb-1 text-dark">Sustainable Infrastructure</h4>
-                            <span class="text-uppercase text-muted small" style="letter-spacing: 1px;">Field Activities</span>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Field Evaluation</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/services-1.jpg" alt="Community Meetings">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Community Meetings</h4>
+                            <span class="gallery-card-badge">Partners</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g1.jpeg" alt="Plantation Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Plantation Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g3.jpeg" alt="Plantation Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Plantation Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g5.jpeg" alt="Plantation Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Plantation Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g6.jpeg" alt="Plantation Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Plantation Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g8.jpeg" alt="Plantation Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Plantation Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g9.jpeg" alt="Plantation Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Plantation Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g10.jpeg" alt="Plantation Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Plantation Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g11.jpeg" alt="Farm Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Farm Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g7.jpeg" alt="Farm Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Farm Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g14.jpeg" alt="Farm Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Farm Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/g15.jpeg" alt="Farm Management">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Farm Management</h4>
+                            <span class="gallery-card-badge">Field Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/work-3.jpg" alt="Community Meetings">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Community Meetings</h4>
+                            <span class="gallery-card-badge">Partners</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/work-4.jpg" alt="Community Meetings">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Community Meetings</h4>
+                            <span class="gallery-card-badge">Partners</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/services-1.jpg" alt="Poultry Farming">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Poultry Farming</h4>
+                            <span class="gallery-card-badge">Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/image_2.jpg" alt="Maize Farming">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Maize Farming</h4>
+                            <span class="gallery-card-badge">Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="training">
+                    <div class="interactive-gallery-card bg-white">
+                        <div class="gallery-card-img-wrap">
+                            <img src="images/services-4.jpg" alt="Community Training">
+                            <div class="gallery-overlay">
+                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-content">
+                            <h4 class="gallery-card-title">Community Training</h4>
+                            <span class="gallery-card-badge">Training</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
             </div>
         </div>
@@ -338,13 +763,15 @@
 
                 const targetFilter = this.getAttribute('data-filter');
                 
-                // Show/Hide items seamlessly matching the query
+                // Show/Hide items with proper flexbox display
                 document.querySelectorAll('.gallery-item').forEach(item => {
                     if (targetFilter === 'all' || item.getAttribute('data-category') === targetFilter) {
-                        item.style.display = 'block';
-                        item.classList.add('fadeIn'); // Triggers standard template CSS animations
+                        item.style.display = 'flex';
+                        item.style.visibility = 'visible';
+                        item.classList.add('fadeIn');
                     } else {
                         item.style.display = 'none';
+                        item.style.visibility = 'hidden';
                     }
                 });
             });
