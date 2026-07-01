@@ -179,6 +179,15 @@ img {
   vertical-align: middle;
   border-style: none; }
 
+/* Sticky navbar override to ensure consistent fixed positioning across site */
+#ftco-navbar.fixed-top, .fixed-top {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030 !important;
+}
+
 svg {
   overflow: hidden;
   vertical-align: middle; }
