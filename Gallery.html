@@ -322,6 +322,50 @@
                 aspect-ratio: unset;
             }
         }
+
+        /* =====================================================
+           12. GALLERY MARQUEE SCROLLING TRACKS
+           ===================================================== */
+        .gallery-marquee {
+            display: grid;
+            gap: 1rem;
+        }
+        .gallery-marquee-row {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+        .gallery-marquee-inner {
+            display: flex;
+            align-items: stretch;
+            gap: 1.5rem;
+            width: max-content;
+            animation: marquee-linear 36s linear infinite;
+            will-change: transform;
+        }
+        .gallery-marquee-row:hover .gallery-marquee-inner {
+            animation-play-state: paused;
+        }
+        .gallery-marquee-row.track-two .gallery-marquee-inner {
+            animation-duration: 44s;
+            animation-direction: reverse;
+        }
+        .gallery-marquee-row .gallery-item {
+            width: auto !important;
+            flex: 0 0 320px;
+            min-width: 280px;
+        }
+        @media (max-width: 767.98px) {
+            .gallery-marquee-row .gallery-item {
+                flex: 0 0 240px;
+                min-width: 220px;
+            }
+        }
+        @keyframes marquee-linear {
+            from { transform: translate3d(0, 0, 0); }
+            to { transform: translate3d(-50%, 0, 0); }
+        }
     </style>
 </head>
 <body>
@@ -434,314 +478,622 @@
             <div class="row justify-content-center mb-5">
                 <div class="col-12 text-center gallery-filter">
                     <button class="btn-filter active mr-2 mb-2" data-filter="all">All Photos</button>
-                    <button class="btn-filter mr-2 mb-2" data-filter="activities">Field Activities</button>
-                    <button class="btn-filter mr-2 mb-2" data-filter="training">Training</button>
-                    <button class="btn-filter mb-2" data-filter="partners">Community Meetings</button>
+                   
                 </div>
             </div>
 
             <div class="row" id="gallery-grid">
-                
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g18.jpeg" alt="Sustainable Agriculture Field Work">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                <div class="gallery-marquee">
+                    <div class="gallery-marquee-row track-one">
+                        <div class="gallery-marquee-inner">
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g18.jpeg" alt="Sustainable Agriculture Field Work">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="training">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/bg_2.jpg" alt="Community Skills Training">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Skills Training</h4>
+                                        <span class="gallery-card-badge">Training</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/services-3.jpg" alt="Partner Field Evaluation">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Field Evaluation</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/services-1.jpg" alt="Community Meetings">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Meetings</h4>
+                                        <span class="gallery-card-badge">Partners</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g1.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g3.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g5.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g6.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g8.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g9.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Duplicate for seamless loop -->
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g18.jpeg" alt="Sustainable Agriculture Field Work">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="training" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/bg_2.jpg" alt="Community Skills Training">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Skills Training</h4>
+                                        <span class="gallery-card-badge">Training</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/services-3.jpg" alt="Partner Field Evaluation">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Field Evaluation</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/services-1.jpg" alt="Community Meetings">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Meetings</h4>
+                                        <span class="gallery-card-badge">Partners</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g1.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g3.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g5.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g6.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g8.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g9.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Plantation Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
+                    </div>
+
+                    <div class="gallery-marquee-row track-two">
+                        <div class="gallery-marquee-inner">
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g10.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g11.jpeg" alt="Farm Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Farm Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g7.jpeg" alt="Farm Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Farm Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g14.jpeg" alt="Farm Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Farm Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g15.jpeg" alt="Farm Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Farm Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/work-3.jpg" alt="Community Meetings">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Meetings</h4>
+                                        <span class="gallery-card-badge">Partners</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/work-4.jpg" alt="Community Meetings">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Meetings</h4>
+                                        <span class="gallery-card-badge">Partners</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/services-1.jpg" alt="Poultry Farming">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Poultry Farming</h4>
+                                        <span class="gallery-card-badge">Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/image_2.jpg" alt="Maize Farming">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Maize Farming</h4>
+                                        <span class="gallery-card-badge">Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="training">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/services-4.jpg" alt="Community Training">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Training</h4>
+                                        <span class="gallery-card-badge">Training</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Duplicate for seamless loop -->
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g10.jpeg" alt="Plantation Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Plantation Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g11.jpeg" alt="Farm Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Farm Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g7.jpeg" alt="Farm Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Farm Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g14.jpeg" alt="Farm Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Farm Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/g15.jpeg" alt="Farm Management">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Farm Management</h4>
+                                        <span class="gallery-card-badge">Field Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/work-3.jpg" alt="Community Meetings">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Meetings</h4>
+                                        <span class="gallery-card-badge">Partners</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/work-4.jpg" alt="Community Meetings">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Meetings</h4>
+                                        <span class="gallery-card-badge">Partners</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/services-1.jpg" alt="Poultry Farming">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Poultry Farming</h4>
+                                        <span class="gallery-card-badge">Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/image_2.jpg" alt="Maize Farming">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Maize Farming</h4>
+                                        <span class="gallery-card-badge">Activities</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="training" aria-hidden="true">
+                                <div class="interactive-gallery-card bg-white">
+                                    <div class="gallery-card-img-wrap">
+                                        <img src="images/services-4.jpg" alt="Community Training">
+                                        <div class="gallery-overlay">
+                                            <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-card-content">
+                                        <h4 class="gallery-card-title">Community Training</h4>
+                                        <span class="gallery-card-badge">Training</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="training">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/bg_2.jpg" alt="Community Skills Training">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Community Skills Training</h4>
-                            <span class="gallery-card-badge">Training</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/services-3.jpg" alt="Partner Field Evaluation">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Field Evaluation</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/services-1.jpg" alt="Community Meetings">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Community Meetings</h4>
-                            <span class="gallery-card-badge">Partners</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g1.jpeg" alt="Plantation Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Plantation Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g3.jpeg" alt="Plantation Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Plantation Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g5.jpeg" alt="Plantation Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Plantation Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g6.jpeg" alt="Plantation Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Plantation Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g8.jpeg" alt="Plantation Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Plantation Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g9.jpeg" alt="Plantation Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Plantation Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g10.jpeg" alt="Plantation Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Plantation Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g11.jpeg" alt="Farm Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Farm Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g7.jpeg" alt="Farm Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Farm Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g14.jpeg" alt="Farm Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Farm Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/g15.jpeg" alt="Farm Management">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Farm Management</h4>
-                            <span class="gallery-card-badge">Field Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/work-3.jpg" alt="Community Meetings">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Community Meetings</h4>
-                            <span class="gallery-card-badge">Partners</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="partners">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/work-4.jpg" alt="Community Meetings">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Community Meetings</h4>
-                            <span class="gallery-card-badge">Partners</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/services-1.jpg" alt="Poultry Farming">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Poultry Farming</h4>
-                            <span class="gallery-card-badge">Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="activities">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/image_2.jpg" alt="Maize Farming">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Maize Farming</h4>
-                            <span class="gallery-card-badge">Activities</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 mb-4 gallery-item" data-category="training">
-                    <div class="interactive-gallery-card bg-white">
-                        <div class="gallery-card-img-wrap">
-                            <img src="images/services-4.jpg" alt="Community Training">
-                            <div class="gallery-overlay">
-                                <span class="fa fa-search-plus text-white" style="font-size: 28px;"></span>
-                            </div>
-                        </div>
-                        <div class="gallery-card-content">
-                            <h4 class="gallery-card-title">Community Training</h4>
-                            <span class="gallery-card-badge">Training</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
